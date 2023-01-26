@@ -87,12 +87,14 @@ runs:
             console.log(`Command \`${command}\` is not defined`)
             process.exit(1)
           }
+          await exec.exec(`bash -c "echo 'runCommand=$(!!jsonObject[command].command)' >> $GITHUB_OUTPUT"`)
           return jsonObject[command]
+
     - name: Print
       uses: actions/github-script@v6
       with:
         script: |
-          console.log(steps.command_details.outputs.result)
+          console.log("RUN COMMAND", steps.command_details.outputs.runCommand)
           console.log(steps.command_details.outputs.result.command)
 
     - name: React with Emoji on start
