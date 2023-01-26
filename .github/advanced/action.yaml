@@ -108,7 +108,7 @@ runs:
           });
 
     - name: Handle PR Command
-      if: ${{ steps.command_details.outputs.result.command != null` && steps.check.outputs.should_run == 'true' && !steps.help_check.outputs.is_help }}
+      if: ${{ steps.check.outputs.should_run == 'true' && !steps.help_check.outputs.is_help }}
       uses: actions/github-script@v6
       env:
         COMMENT: ${{ github.event.comment.body }}
