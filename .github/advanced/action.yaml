@@ -92,9 +92,11 @@ runs:
 
     - name: Print
       uses: actions/github-script@v6
+      env:
+        RUN_COMMAND: ${{ steps.command_details.outputs.runCommand }}
       with:
         script: |
-          console.log("RUN COMMAND", steps.command_details.outputs.runCommand)
+          console.log(process.env.RUN_COMMAND)
           console.log(steps.command_details.outputs.result.command)
 
     - name: React with Emoji on start
