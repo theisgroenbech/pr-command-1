@@ -5,6 +5,6 @@
   },  "test2": {
     "description": "Testing",
     "commitMsg": "Test",
-    "command": "echo 'test' > test.txt"
+    "command": "echo 'test'"
   }
 }
