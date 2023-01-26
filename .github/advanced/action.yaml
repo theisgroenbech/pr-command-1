@@ -87,9 +87,8 @@ runs:
             console.log(`Command \`${command}\` is not defined`)
             process.exit(1)
           }
-          const command = jsonObject[command]
-          await exec.exec(`bash -c "echo 'hasCommand=${!!command.command}' >> $GITHUB_OUTPUT"`)
-          return command
+          await exec.exec(`bash -c "echo 'hasCommand=${!!jsonObject[command].command}' >> $GITHUB_OUTPUT"`)
+          return jsonObject[command]
 
     - name: Print
       uses: actions/github-script@v6
