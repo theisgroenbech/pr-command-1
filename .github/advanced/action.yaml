@@ -88,6 +88,12 @@ runs:
             process.exit(1)
           }
           return jsonObject[command]
+    - name: Print
+      uses: actions/github-script@v6
+      with:
+        script: |
+          console.log(steps.command_details.outputs.result)
+          console.log(steps.command_details.outputs.result.command)
 
     - name: React with Emoji on start
       uses: actions/github-script@v6
