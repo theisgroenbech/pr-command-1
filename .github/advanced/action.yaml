@@ -106,8 +106,6 @@ runs:
       with:
         github-token: ${{ inputs.token }}
         script: |
-          console.log(steps.command_details.outputs.result.command)
-          console.log(steps.command_details.outputs.result);
           const jsonObject = JSON.parse(process.env.COMMAND_DETAILS);
           if (jsonObject.startEmoji === null) return
           github.rest.reactions.createForIssueComment({
