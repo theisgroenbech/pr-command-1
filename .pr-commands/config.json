@@ -2,5 +2,9 @@
   "test": {
     "description": "Testing",
     "commitMsg": "Test"
+  },  "test2": {
+    "description": "Testing",
+    "commitMsg": "Test",
+    "command": "echo 'test' > test.txt"
   }
 }
